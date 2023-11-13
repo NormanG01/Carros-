@@ -1,0 +1,91 @@
+public class Vehiculo {
+
+    private String marca;
+    private String modelo;
+    private String color;
+
+    public Vehiculo(String marca, String modelo, String color) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
+    }
+
+    public void girar(int grados) {
+        System.out.println("Girando " + grados + " grados");
+    }
+
+    public void acelerar(int velocidad) {
+        System.out.println("Acelerando a " + velocidad + " km/h");
+    }
+}
+//
+
+
+
+public class Carro extends Vehiculo {
+
+    private int cantidadRuedas;
+    private String tipoTransmision;
+
+    public Carro(String marca, String modelo, String color, int cantidadRuedas, String tipoTransmision) {
+        super(marca, modelo, color);
+        this.cantidadRuedas = cantidadRuedas;
+        this.tipoTransmision = tipoTransmision;
+    }
+
+    public void cambiarVelocidad(int velocidad) {
+        System.out.println("Cambiando a la velocidad " + velocidad);
+    }
+}
+
+
+
+//
+
+
+
+
+
+
+
+public class CarroEspecifico extends Carro {
+
+    private int potencia;
+
+    public CarroEspecifico(String marca, String modelo, String color, int cantidadRuedas, String tipoTransmision, int potencia) {
+        super(marca, modelo, color, cantidadRuedas, tipoTransmision);
+        this.potencia = potencia;
+    }
+
+    public void acelerar(int velocidad) {
+        super.acelerar(velocidad);
+        System.out.println("La potencia del motor es de " + potencia + " caballos de fuerza");
+    }
+}
+
+
+
+
+
+
+
+//
+
+
+
+
+
+CarroEspecifico carro = new CarroEspecifico(
+    "Ford",
+    "Mustang",
+    "Rojo",
+    4,
+    "Manual",
+    460
+);
+
+carro.girar(90);
+carro.cambiarVelocidad(5);
+carro.acelerar(200);
+
+
